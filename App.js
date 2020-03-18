@@ -25,16 +25,12 @@ export default function App() {
         style={styles.txt}
         placeholder="Insira seu texto"
       />
-      {/* <TouchableOpacity
-        title="asasa" 
-        onPress={speak}
-        style={styles.btn}
-      >
-        <Text style={styles.btn_txt}>Aperte para falar</Text>
-      </TouchableOpacity> */}
 
       <View style={styles.tst}>
-        <Button title="Aperte para falar" color="#f94851"/>
+        <Button
+          title="Aperte para falar"
+          color="#f94851"
+          onPress={speak}/>
         </View>
     </View>
   );

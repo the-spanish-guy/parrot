@@ -8,7 +8,7 @@ import parrot from './assets/parrot.png'
 import parrot_animation from './assets/parrot.gif'
 
 export default function App() {
-  const [text, setText] = useState('eu te amo muito coisinha chata e dramática');
+  const [text, setText] = useState('Alô Alô galerinha do cowboy');
   const [gif, setGif] = useState(false)
 
   function speak() {

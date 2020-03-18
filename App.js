@@ -1,23 +1,36 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, Button, TextInput, Image, TouchableOpacity } from 'react-native';
 import * as speech from 'expo-speech'
+import Lottie from 'lottie-react-native'
 
-var parrot = require('./assets/parrot.png')
+import parrot from './assets/parrot.png'
+// import parrot_animation from './assets/parrot.json'
+import parrot_animation from './assets/parrot.gif'
 
 export default function App() {
   const [text, setText] = useState('eu te amo muito coisinha chata e dramática');
+  const [gif, setGif] = useState(false)
 
   function speak() {
+    
     speech.speak(text, {
-      language: 'pt-BR'
+      language: 'pt-BR',
+      onStart: () => setGif(true),
+      onDone: () => setGif(false)
     })
   }
-
+  // if (gif) {
+  //   return (
+  //     <View style={styles.container}>
+  //       <Lottie resizeMode="contain" autoSize source={parrot_animation} autoPlay loop/>
+  //     </View>
+  //   )
+  // }
   return (
     <View style={styles.container}>
-      <Text>talk more than my girlfriend</Text>
+        <Text>talk more than my girlfriend</Text>
       <Image
-        source={parrot}
+        source={gif ? parrot_animation : parrot }
         style={styles.img}
       />
       <TextInput

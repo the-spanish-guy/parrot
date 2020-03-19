@@ -1,4 +1,4 @@
-# Parrot <img src="https://raw.githubusercontent.com/the-spanish-guy/parrot/master/assets/icon.png" style="zoom:30%;" />
+# Parrot <img src="https://raw.githubusercontent.com/the-spanish-guy/parrot/master/assets/icon.png" style="width:4%;" />
 
 Parrot é um app que fala tudo o que você escrever
 

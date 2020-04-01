@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, Button, TextInput, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, Image, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import * as speech from 'expo-speech'
 import Lottie from 'lottie-react-native'
 
@@ -13,11 +13,16 @@ export default function App() {
 
   function speak() {
     
-    speech.speak(text, {
+    speech.speak(text + 'uruu uruu', {
       language: 'pt-BR',
       onStart: () => setGif(true),
-      onDone: () => setGif(false)
+      onDone: () => a()
     })
+  }
+  
+  function a() {
+    setGif(false)
+    setText('')
   }
   // if (gif) {
   //   return (
@@ -28,23 +33,24 @@ export default function App() {
   // }
   return (
     <View style={styles.container}>
-        <Text>talk more than my girlfriend</Text>
       <Image
         source={gif ? parrot_animation : parrot }
         style={styles.img}
       />
-      <TextInput
-        onChangeText={e => setText(e)}
-        style={styles.txt}
-        placeholder="Insira seu texto"
-      />
 
-      <View style={styles.tst}>
-        <Button
-          title="Aperte para falar"
-          color="#f94851"
-          onPress={speak}/>
-        </View>
+        <TextInput
+          onChangeText={e => setText(e)}
+          style={styles.txt}
+          placeholder="Insira seu texto"
+          value={text}
+        />
+
+        <View style={styles.tst}>
+          <Button
+            title="Aperte para falar"
+            color="#f94851"
+            onPress={speak}/>
+          </View>
     </View>
   );
 }

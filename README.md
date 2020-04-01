@@ -40,7 +40,8 @@ npm install
 ```
 
 
-## Rodando o projeto
+
+## :octocat: Rodando o projeto
 
 para roder o projeto, é só rodar o seguinte comando
 
@@ -49,14 +50,18 @@ para roder o projeto, é só rodar o seguinte comando
 yarn start
 ```
 
-- npm
+- npm 
 ```bash
 npm start
 ```
 
-### License :writing_hand: 
+
+
+##  :writing_hand: License
 
 Este projeto está sob a  LICENSE [MIT](https://en.wikipedia.org/wiki/MIT_License), presente no arquivo [LICENSE](./LICENSE).
+
+
 
 ---
 Made by [the spanish guy](https://github.com/the-spanish-guy) with :purple_heart:

@@ -1,26 +1,31 @@
-import React, {useState} from 'react';
-import { StyleSheet, Text, View, Button, TextInput, Image, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import React, { useState } from 'react';
+import {
+  StyleSheet,
+  View,
+  Button,
+  TextInput,
+  Image
+} from 'react-native';
 import * as speech from 'expo-speech'
-import Lottie from 'lottie-react-native'
+// import Lottie from 'lottie-react-native'
 
 import parrot from './assets/parrot.png'
-// import parrot_animation from './assets/parrot.json'
 import parrot_animation from './assets/parrot.gif'
+// import parrot_animation from './assets/parrot.json'
 
 export default function App() {
-  const [text, setText] = useState('Alô Alô galerinha do cowboy');
+  const [text, setText] = useState('');
   const [gif, setGif] = useState(false)
 
   function speak() {
-    
     speech.speak(text + 'uruu uruu', {
       language: 'pt-BR',
       onStart: () => setGif(true),
-      onDone: () => a()
+      onDone: () => reset()
     })
   }
-  
-  function a() {
+
+  function reset() {
     setGif(false)
     setText('')
   }
@@ -34,23 +39,23 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Image
-        source={gif ? parrot_animation : parrot }
+        source={gif ? parrot_animation : parrot}
         style={styles.img}
       />
 
-        <TextInput
-          onChangeText={e => setText(e)}
-          style={styles.txt}
-          placeholder="Insira seu texto"
-          value={text}
-        />
+      <TextInput
+        onChangeText={e => setText(e)}
+        style={styles.txt}
+        placeholder="Insira seu texto"
+        value={text}
+      />
 
-        <View style={styles.tst}>
-          <Button
-            title="Aperte para falar"
-            color="#f94851"
-            onPress={speak}/>
-          </View>
+      <View style={styles.tst}>
+        <Button
+          title="Aperte para falar"
+          color="#f94851"
+          onPress={speak} />
+      </View>
     </View>
   );
 }
@@ -86,6 +91,6 @@ const styles = StyleSheet.create({
     height: 200
   },
   tst: {
-    width: "auto"
+    width: "auto",
   }
 });

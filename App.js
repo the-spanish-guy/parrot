@@ -1,3 +1,4 @@
+// require('react-native').unstable_enableLogBox();
 import React, { useState } from 'react';
 import {
   StyleSheet,

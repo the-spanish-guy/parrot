@@ -41,7 +41,13 @@ export default function Talk() {
   const HandleParrotAnimaiton = (function() {
     if(gif) {
       return (
-        <Lottie resizeMode="contain" autoSize source={parrot_animation} autoPlay loop/>
+        <Lottie
+          resizeMode="contain"
+          autoSize
+          source={parrot_animation}
+          autoPlay
+          loop
+        />
       )
     }
 
@@ -59,7 +65,10 @@ export default function Talk() {
     return <AppLoading />;
   }else{
   return (
-    <View style={[styles.container, { backgroundColor: colors.background }]} keyboardShouldPersistTaps='handled'>
+    <View style={
+      [styles.container, { backgroundColor: colors.background }]}
+      keyboardShouldPersistTaps='handled'
+    >
       <HandleParrotAnimaiton/>
       
       <TextInput

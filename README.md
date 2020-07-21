@@ -1,12 +1,11 @@
 <p align="center">
-	<img src="https://raw.githubusercontent.com/the-spanish-guy/parrot/master/assets/icon.png" width="100" height="100" />
-	</p>
-<h1 align="center">Parrot</h1>
-
+	<img src="./assets/PARROT_.png" width="200" height="100" />
+</p>
 
 <h4 align="center">
-<img src="./assets/.img_readme/animation.gif" width="350px" /><br>
+<img src="./assets/.img_readme/mockup_parrot2.jpg" width="100%" /><br>
 </h4>
+
 
 
 ## Teconologias usadas

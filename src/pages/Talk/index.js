@@ -1,31 +1,32 @@
 // require('react-native').unstable_enableLogBox();
 import React, { useState } from 'react';
 import {
-  StyleSheet,
   View,
-  Button,
   TextInput,
   Image,
   TouchableOpacity,
-  Text
+  Text,
+  Keyboard
 } from 'react-native';
+import { AppLoading } from 'expo';
 import * as speech from 'expo-speech'
 import Lottie from 'lottie-react-native'
+import { useTheme } from "react-native-paper";
+import { useFonts, Roboto_700Bold } from "@expo-google-fonts/roboto";
 
 import parrot from '../../../assets/PARROT_.png'
-// import parrot_animation from '../../../assets/parrot.gif'
 import parrot_animation from '../../../assets/parrot.json'
-import { useTheme } from "react-native-paper";
-
 
 import styles from './styles';
 
 export default function Talk() {
+  let [ fontLoaded ] = useFonts({Roboto_700Bold});
   const { colors } = useTheme();
   const [text, setText] = useState('');
   const [gif, setGif] = useState(false)
 
   function speak() {
+    Keyboard.dismiss();
     speech.speak(text + 'uruu uruu', {
       language: 'pt-BR',
       onStart: () => setGif(true),
@@ -40,7 +41,7 @@ export default function Talk() {
   const HandleParrotAnimaiton = (function() {
     if(gif) {
       return (
-          <Lottie resizeMode="contain" autoSize source={parrot_animation} autoPlay loop/>
+        <Lottie resizeMode="contain" autoSize source={parrot_animation} autoPlay loop/>
       )
     }
 
@@ -53,34 +54,29 @@ export default function Talk() {
       </View>
     )
   });
+
+  if (!fontLoaded) {
+    return <AppLoading />;
+  }else{
   return (
-      <View style={[styles.container, { backgroundColor: colors.background }]}>
+    <View style={[styles.container, { backgroundColor: colors.background }]} keyboardShouldPersistTaps='handled'>
+      <HandleParrotAnimaiton/>
       
-      <View style={{height: 120, backgroundColor: '#F94851', borderBottomLeftRadius: 80}}/>
-      
-      <View style={{flex:1}}>
-        <View style={{...StyleSheet.absoluteFillObject, backgroundColor: '#F94851'}} />
+      <TextInput
+        onChangeText={e => setText(e)}
+        style={styles.txt}
+        placeholder="Instert your text"
+        value={text}
+      />
 
-        <View style={[styles.content, {backgroundColor: '#000C1E'}]} >
-        <HandleParrotAnimaiton/>
-          <TextInput
-            onChangeText={e => setText(e)}
-            style={styles.txt}
-            placeholder="Insira seu texto"
-            value={text}
-          />
-
-          <View style={styles.tst}>
-            <TouchableOpacity
-              onPress={speak}
-              style={[styles.btn, { backgroundColor: colors.button } ]}
-            >
-                <Text style={{color: '#FFFFFF'}}>Aperte para falar</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-
+      <View style={styles.tst}>
+        <TouchableOpacity
+          onPress={speak}
+          style={styles.btn}
+        >
+          <Text style={{color: '#FFFFFF', fontFamily: 'Roboto_700Bold'}}>Press to talk</Text>
+        </TouchableOpacity>
       </View>
     </View>
-  );
+  )}
 }

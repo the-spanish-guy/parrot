@@ -16,7 +16,8 @@ const light = {
   colors: {
     ...DefaultTheme.colors,
     background: '#FFFFFF',
-    button: '#F94851'
+    button: '#F94851',
+    txt: '#707070'
   }
 }
 
@@ -26,7 +27,8 @@ const dark = {
   colors: {
     ...DefaultTheme.colors,
     background: '#000C1E',
-    button: '#CC333E'
+    button: '#CC333E',
+    txt: '#FFFFFF'
   }
 }
 

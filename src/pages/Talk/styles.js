@@ -4,12 +4,8 @@ import Constants from 'expo-constants'
 export default StyleSheet.create({
   container: {
     flex: 1,
-  },
-  content:{
-    flex:1,
-    borderTopRightRadius: 120,
     alignItems: 'center',
-    paddingTop: Constants.statusBarHeight + 20
+    justifyContent: "center"
   },
   txt: {
     width: '90%',
@@ -26,18 +22,19 @@ export default StyleSheet.create({
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowOpacity: 0.23,
+    shadowRadius: 2.62,
 
     elevation: 4,
   },
   img_container: {
     width: 300,
     height: 200,
-    overflow: "hidden",
+    // marginTop: Constants.statusBarHeight + 40,
+    alignItems: "center",
   },
   img: {
-    width: "100%",
+    width: "80%",
     height: "100%",
     resizeMode: "contain"
   },
@@ -49,5 +46,7 @@ export default StyleSheet.create({
     height: 40,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: '#F94851',
+    marginTop: 20,
   }
 });

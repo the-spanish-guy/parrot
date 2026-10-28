@@ -6,7 +6,7 @@ import {
   Appearance,
 } from 'react-native';
 
-import { DefaultTheme, Provider as PaperProvider, useTheme } from "react-native-paper";
+import { MD2LightTheme as DefaultTheme, PaperProvider } from "react-native-paper";
 
 import Routes from './src/routes'
 
@@ -35,10 +35,8 @@ const dark = {
 const colorScheme = Appearance.getColorScheme();
 
 export default function App() {
-  const { colors } = useTheme();
-
   return (
-    <PaperProvider style={styles.container} theme={colorScheme === 'dark' ? dark : light}>
+    <PaperProvider theme={colorScheme === 'dark' ? dark : light}>
       <Routes/>
     </PaperProvider>
   );

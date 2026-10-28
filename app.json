@@ -2,7 +2,6 @@
   "expo": {
     "name": "Blank Template",
     "slug": "parrot",
-    "privacy": "public",
     "platforms": [
       "ios",
       "android",
@@ -11,14 +10,6 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/parrot.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#FFFFFF"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -26,12 +17,16 @@
     "ios": {
       "supportsTablet": true
     },
-    
-    "androidStatusBar": {
-      "barStyle": "light-content"
-    },
-    "experiments": {
-      "redesignedLogBox": true
-    }
+    "plugins": [
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/parrot.png",
+          "backgroundColor": "#FFFFFF",
+          "imageWidth": 200
+        }
+      ]
+    ]
   }
 }

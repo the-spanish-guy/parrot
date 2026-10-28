@@ -8,7 +8,6 @@ import {
   Text,
   Keyboard
 } from 'react-native';
-import { AppLoading } from 'expo';
 import * as speech from 'expo-speech'
 import Lottie from 'lottie-react-native'
 import { useTheme } from "react-native-paper";
@@ -62,7 +61,7 @@ export default function Talk() {
   });
 
   if (!fontLoaded) {
-    return <AppLoading />;
+    return null;
   }else{
   return (
     <View style={
